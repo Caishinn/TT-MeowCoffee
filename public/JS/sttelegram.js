@@ -15,24 +15,18 @@ function formatTelegramMessage(order) {
 }
 
 function sendToTelegram(text) {
-  const botToken = "8101505368:AAF0lTcN7V8VgNPGOQUFdnhKe4EiIjy2vyQ"; // 🔁 Replace this
-  const chatId = "5972075583"; // 🔁 Replace this
-
-  fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+  fetch("/send-receipt", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: text,
-      parse_mode: "Markdown",
-    }),
+    body: JSON.stringify({ message: text }),
   })
-    .then((res) => {
-      if (!res.ok) {
-        console.error("Telegram error:", res.statusText);
+    .then((res) => res.json())
+    .then((data) => {
+      if (!data.success) {
+        console.error("Telegram Error:", data.error);
       }
     })
-    .catch((err) => console.error("Telegram error:", err));
+    .catch((err) => console.error("Fetch error:", err));
 }
