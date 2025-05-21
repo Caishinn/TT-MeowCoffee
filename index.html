@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meow-Cafe</title>
+    
+    <!--Link with Css-->
+    <link rel="stylesheet" href="./CSS/styles.css">
+    <link rel="stylesheet" href="./CSS/header.css">
+    <link rel="stylesheet" href="./CSS/menu.css">
+    <link rel="stylesheet" href="./CSS/footer.css">
+    <link rel="stylesheet" href="./CSS/toast.css">
+    <link rel="stylesheet" href="./CSS/orderhistory.css">
+    <link rel="stylesheet" href="./CSS/responsive.css">
+
+    <!--Link Font-->
+
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+   
+
+</head>
+<body>
+
+<!--Header-->
+
+    <header>
+  <h1>Café Mocha</h1>
+  <p class="tagline">Brewed with love ☕</p>
+
+  <!--Header buttons Cart with order history-->
+
+  <div class="header-buttons">
+    <button onclick="location.href='cart.html'">Cart 🛒 (<span id="cart-count">0</span>)</button>
+    <button onclick="location.href='order.html'">Order History 📜</button>
+
+  </div>
+</header>
+
+     <main>
+
+        <!--Menu -->
+    <section class="menu">
+      <h2>Our Menu</h2>
+
+      <!--Menu item-->
+
+      <div class="menu-grid">
+
+        <!-- latter-->
+        <div class="menu-item">
+  <h3>Latte</h3>
+  <p>Rich espresso with steamed milk</p>
+  <p>$3.50</p>
+
+  <!-- Quantity Box -->
+  <div class="qty-wrapper">
+    <button type="button" onclick="changeQty('qty-latte', -1)">−</button>
+    <input type="number" id="qty-latte" value="1" min="1" />
+    <button type="button" onclick="changeQty('qty-latte', 1)">+</button>
+  </div>
+
+  <!-- Add to Cart button -->
+  <button class="add-to-cart-btn" onclick="addToCart('Latte', 3.5, parseInt(document.getElementById('qty-latte').value))">
+    Add to Cart
+  </button>
+</div>
+
+<!-- milk-->
+<div class="menu-item">
+  <h3>Milk</h3>
+  <p>Rich espresso with steamed milk</p>
+  <p>$3.50</p>
+
+    <div class="qty-wrapper">
+    <button type="button" onclick="changeQty('qty-milk', -1)">−</button>
+    <input type="number" id="qty-milk" value="1" min="1" />
+    <button type="button" onclick="changeQty('qty-milk', 1)">+</button>
+  </div>
+
+  <!-- Add to Cart button -->
+  <button class="add-to-cart-btn" onclick="addToCart('Milk', 3.5, parseInt(document.getElementById('qty-milk').value))">
+    Add to Cart
+  </button>
+        
+</div>
+
+<!-- green tea-->
+<div class="menu-item">
+  <h3>Green Tea</h3>
+  <p>Rich espresso with steamed milk</p>
+  <p>$3.00</p>
+
+    <div class="qty-wrapper">
+    <button type="button" onclick="changeQty('qty-grrentea', -1)">−</button>
+    <input type="number" id="qty-grrentea" value="1" min="1" />
+    <button type="button" onclick="changeQty('qty-grrentea', 1)">+</button>
+  </div>
+
+  <!-- Add to Cart button -->
+  <button class="add-to-cart-btn" onclick="addToCart('Green Tea', 3.0, parseInt(document.getElementById('qty-grrentea').value))">
+    Add to Cart
+  </button>
+        
+</div>
+
+<!-- red tea-->
+<div class="menu-item">
+  <h3>Red Tea</h3>
+  <p>Rich espresso with steamed milk</p>
+  <p>$3.00</p>
+
+    <div class="qty-wrapper">
+    <button type="button" onclick="changeQty('qty-redtea', -1)">−</button>
+    <input type="number" id="qty-redtea" value="1" min="1" />
+    <button type="button" onclick="changeQty('qty-redtea', 1)">+</button>
+  </div>
+
+  <!-- Add to Cart button -->
+  <button class="add-to-cart-btn" onclick="addToCart('Red Tea', 3.0, parseInt(document.getElementById('qty-redtea').value))">
+    Add to Cart
+  </button>
+        
+</div>
+
+<!-- Cappucino -->
+<div class="menu-item">
+  <h3>Cappucino</h3>
+  <p>Rich espresso with steamed milk</p>
+  <p>$3.00</p>
+
+    <div class="qty-wrapper">
+    <button type="button" onclick="changeQty('qty-cappucino', -1)">−</button>
+    <input type="number" id="qty-cappucino" value="1" min="1" />
+    <button type="button" onclick="changeQty('qty-cappucino', 1)">+</button>
+  </div>
+
+  <!-- Add to Cart button -->
+  <button class="add-to-cart-btn" onclick="addToCart('Cappucino', 3.0, parseInt(document.getElementById('qty-cappucino').value))">
+    Add to Cart
+  </button>
+        
+</div>
+
+<!-- Espresso-->
+<div class="menu-item">
+  <h3>Espresso</h3>
+  <p>Rich espresso with steamed milk</p>
+  <p>$3.00</p>
+
+    <div class="qty-wrapper">
+    <button type="button" onclick="changeQty('qty-espresso', -1)">−</button>
+    <input type="number" id="qty-espresso" value="1" min="1" />
+    <button type="button" onclick="changeQty('qty-espresso', 1)">+</button>
+  </div>
+
+  <!-- Add to Cart button -->
+  <button class="add-to-cart-btn" onclick="addToCart('Espresso', 3.0, parseInt(document.getElementById('qty-espresso').value))">
+    Add to Cart
+  </button>
+        
+</div>
+
+
+<!-- Add more items here -->
+    </section>
+  </main>
+
+<!--Footer -->
+
+  <footer>
+    <p>© 2025 Café Mocha. All rights reserved.</p>
+  </footer>
+  
+
+  <!--link script -->
+  
+  <script src="./JS/script.js"></script>
+  <script src="./JS/toast.js"></script>
+  <script src="./JS/addtocart.js"></script>
+  <script src="./JS/loadcartpage.js"></script>
+  <script src="./JS/sttelegram.js"></script>
+  
+
+  <div id="toast" class="toast">✅ Added to cart!</div>
+</body>
+</html>
