@@ -80,7 +80,7 @@ function confirmPayment() {
   const orderDate = new Date();
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  // Fill in modal data
+  // Fill in modal
   document.getElementById("summary-id").textContent = orderId;
   document.getElementById("summary-date").textContent =
     orderDate.toLocaleString();
@@ -97,13 +97,13 @@ function confirmPayment() {
     summaryItems.appendChild(li);
   });
 
-  // Show modal and lock background scroll
+  // Show modal
   const modal = document.getElementById("order-summary-modal");
   modal.classList.add("show");
   modal.style.display = "flex";
   document.body.classList.add("modal-open");
 
-  // Close modal handler
+  // Close modal button
   const closeButton = document.querySelector(".close-button");
   if (closeButton) {
     closeButton.onclick = () => {
@@ -113,7 +113,7 @@ function confirmPayment() {
     };
   }
 
-  // Final confirmation (Place Order button)
+  // Final confirmation
   const placeOrderBtn = document.getElementById("final-confirm-btn");
   if (placeOrderBtn) {
     placeOrderBtn.onclick = () => {
@@ -124,20 +124,18 @@ function confirmPayment() {
         total: total,
       };
 
-      // 1. Send receipt to Telegram
+      // ✅ Send full receipt to Telegram
       const message = formatTelegramMessage(newOrder);
       sendToTelegram(message);
 
-      // 2. Save order to history at the start of the array (newest first)
+      // Save order and reset cart
       orderHistory.unshift(newOrder);
       saveOrderHistory();
-
-      // 3. Clear cart
       cart = [];
       saveCart();
       updateCartCount();
 
-      // 4. Close modal and redirect
+      // Close modal and redirect
       modal.classList.remove("show");
       modal.style.display = "none";
       document.body.classList.remove("modal-open");

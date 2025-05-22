@@ -14,19 +14,25 @@ function formatTelegramMessage(order) {
   return message;
 }
 
-function sendToTelegram(text) {
-  fetch("/send-receipt", {
+function sendToTelegram(message) {
+  fetch("/send-telegram", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ message: text }),
+    body: JSON.stringify({
+      message: message, // ✅ send the actual message you passed in
+    }),
   })
     .then((res) => res.json())
     .then((data) => {
-      if (!data.success) {
-        console.error("Telegram Error:", data.error);
+      if (data.success) {
+        console.log("✅ Receipt sent to Telegram");
+      } else {
+        console.error("❌ Failed to send receipt:", data.error);
       }
     })
-    .catch((err) => console.error("Fetch error:", err));
+    .catch((err) => {
+      console.error("❌ Telegram request failed:", err);
+    });
 }
