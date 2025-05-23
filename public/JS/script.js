@@ -169,7 +169,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function sendToTelegram(message) {
-  fetch("https://tt-meow-coffee.vercel.app/send-telegram", {
+  fetch("/send-telegram", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
