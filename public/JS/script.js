@@ -168,52 +168,6 @@ window.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
 });
 
-// Modal close handlers - only once registered on DOMContentLoaded
-document.addEventListener("DOMContentLoaded", () => {
-  const orderHistoryContainer = document.getElementById(
-    "order-history-container"
-  );
-  const orders = JSON.parse(localStorage.getItem("orderHistory")) || [];
-
-  if (orders.length === 0) {
-    orderHistoryContainer.innerHTML = "<p>No past orders found.</p>";
-    return;
-  }
-
-  orderHistoryContainer.innerHTML = ""; // Clear before rendering
-
-  orders.forEach((order, index) => {
-    const orderDiv = document.createElement("div");
-    orderDiv.classList.add("order");
-
-    // Parse date/time nicely
-    const orderDate = new Date(order.date);
-    const dateString = orderDate.toLocaleDateString(); // e.g. "5/19/2025"
-    const timeString = orderDate.toLocaleTimeString(); // e.g. "3:45:23 PM"
-
-    // Build items list HTML
-    const itemsHtml = order.items
-      .map(
-        (item) =>
-          `<li>${item.name} x ${item.quantity} - $${(
-            item.price * item.quantity
-          ).toFixed(2)}</li>`
-      )
-      .join("");
-
-    orderDiv.innerHTML = `
-      <h3>Order ID: ${order.id}</h3>
-      <p><strong>Date:</strong> ${dateString}</p>
-      <p><strong>Time:</strong> ${timeString}</p>
-      <ul>${itemsHtml}</ul>
-      <p><strong>Total:</strong> $${order.total.toFixed(2)}</p>
-      <hr />
-    `;
-
-    orderHistoryContainer.appendChild(orderDiv);
-  });
-});
-
 function sendToTelegram(message) {
   fetch("/send-telegram", {
     method: "POST",

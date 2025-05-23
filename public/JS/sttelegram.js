@@ -15,7 +15,7 @@ function formatTelegramMessage(order) {
 }
 
 function sendToTelegram(message) {
-  fetch("/send-telegram", {
+  fetch("https://tt-meow-coffee.vercel.app/send-telegram", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
