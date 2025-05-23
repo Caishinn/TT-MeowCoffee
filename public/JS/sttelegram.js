@@ -1,8 +1,8 @@
 function formatTelegramMessage(order) {
-  let message = `🧾 *New Order Received!*\n`;
-  message += `🆔 *Order ID:* ${order.id}\n`;
-  message += `📅 *Date:* ${new Date(order.date).toLocaleString()}\n`;
-  message += `📦 *Items:*\n`;
+  let message = `🧾 <b>New Order Received!</b>\n`;
+  message += `🆔 <b>Order ID:</b> ${order.id}\n`;
+  message += `📅 <b>Date:</b> ${new Date(order.date).toLocaleString()}\n\n`;
+  message += `📦 <b>Items:</b>\n`;
 
   order.items.forEach((item) => {
     message += `• ${item.name} x${item.quantity} — $${(
@@ -10,7 +10,7 @@ function formatTelegramMessage(order) {
     ).toFixed(2)}\n`;
   });
 
-  message += `\n💰 *Total:* $${order.total.toFixed(2)}`;
+  message += `\n💰 <b>Total:</b> $${order.total.toFixed(2)}`;
   return message;
 }
 
@@ -20,19 +20,17 @@ function sendToTelegram(message) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      message: message, // ✅ send the actual message you passed in
-    }),
+    body: JSON.stringify({ message }),
   })
     .then((res) => res.json())
     .then((data) => {
       if (data.success) {
-        console.log("✅ Receipt sent to Telegram");
+        console.log("✅ Telegram message sent!");
       } else {
-        console.error("❌ Failed to send receipt:", data.error);
+        console.error("❌ Telegram error:", data.error);
       }
     })
     .catch((err) => {
-      console.error("❌ Telegram request failed:", err);
+      console.error("❌ Telegram fetch failed:", err);
     });
 }

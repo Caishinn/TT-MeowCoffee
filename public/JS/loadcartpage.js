@@ -32,9 +32,10 @@ function loadCartPage() {
       <div class="item-right">
         <span class="item-total">$${itemTotal.toFixed(2)}</span>
         <button class="remove-btn" onclick="removeFromCart(${index})" title="Remove item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#ffffff" viewBox="0 0 24 24">
-            <path d="M3 6h18v2H3V6zm2 3h14l-1.5 13H6.5L5 9zm5 2v8h2v-8H10zm4 0v8h2v-8h-2z"/>
-          </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#ffffff" viewBox="0 0 24 24">
+        <path d="M3 6h18v2H3V6zm2 3h14l-1.5 13H6.5L5 9zm5 2v8h2v-8H10zm4 0v8h2v-8h-2z"/>
+      </svg>
+      
         </button>
       </div>
     `;
@@ -53,81 +54,35 @@ function loadCartPage() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Show order history
   const orderHistoryContainer = document.getElementById(
     "order-history-container"
   );
   const orders = JSON.parse(localStorage.getItem("orderHistory")) || [];
 
-  if (orderHistoryContainer) {
-    if (orders.length === 0) {
-      orderHistoryContainer.innerHTML = "<p>No past orders found.</p>";
-    } else {
-      orders.forEach((order, index) => {
-        const orderDiv = document.createElement("div");
-        orderDiv.classList.add("order");
-
-        const itemsHtml = order.items
-          .map(
-            (item) =>
-              `<li>${item.name} x ${item.quantity} - $${(
-                item.price * item.quantity
-              ).toFixed(2)}</li>`
-          )
-          .join("");
-
-        orderDiv.innerHTML = `
-          <h3>Order #${index + 1}</h3>
-          <p><strong>Date:</strong> ${new Date(order.date).toLocaleString()}</p>
-          <ul>${itemsHtml}</ul>
-          <p><strong>Total:</strong> $${order.total.toFixed(2)}</p>
-        `;
-
-        orderHistoryContainer.appendChild(orderDiv);
-      });
-    }
+  if (orders.length === 0) {
+    orderHistoryContainer.innerHTML = "<p>No past orders found.</p>";
+    return;
   }
 
-  // Send Telegram receipt when placing order
-  const confirmBtn = document.getElementById("final-confirm-btn");
-  if (confirmBtn) {
-    confirmBtn.addEventListener("click", () => {
-      const summaryId =
-        document.getElementById("summary-id")?.textContent || "N/A";
-      const summaryDate =
-        document.getElementById("summary-date")?.textContent || "N/A";
-      const summaryTotal =
-        document.getElementById("summary-total")?.textContent || "0.00";
+  orders.forEach((order, index) => {
+    const orderDiv = document.createElement("div");
+    orderDiv.classList.add("order");
 
-      const items = [...document.querySelectorAll("#summary-items li")]
-        .map((li) => li.textContent.trim())
-        .join("\n• ");
-
-      const message = `
-<b>🧾 Order Receipt</b>
-<b>🆔 ID:</b> ${summaryId}
-<b>🕒 Date:</b> ${summaryDate}
-<b>💰 Total:</b> $${summaryTotal}
-<b>🍽️ Items:</b>
-• ${items}
-      `.trim();
-
-      fetch("/send-telegram", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
+    let itemsHtml = order.items
+      .map((item) => {
+        return `<li>${item.name} x ${item.quantity} - $${(
+          item.price * item.quantity
+        ).toFixed(2)}</li>`;
       })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success) {
-            console.log("✅ Telegram receipt sent!");
-          } else {
-            console.error("❌ Telegram API error:", data.error);
-          }
-        })
-        .catch((err) => {
-          console.error("❌ Failed to send Telegram message:", err);
-        });
-    });
-  }
+      .join("");
+
+    orderDiv.innerHTML = `
+      <h3>Order #${index + 1}</h3>
+      <p><strong>Date:</strong> ${new Date(order.date).toLocaleString()}</p>
+      <ul>${itemsHtml}</ul>
+      <p><strong>Total:</strong> $${order.total.toFixed(2)}</p>
+    `;
+
+    orderHistoryContainer.appendChild(orderDiv);
+  });
 });

@@ -80,7 +80,7 @@ function confirmPayment() {
   const orderDate = new Date();
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  // Fill in modal
+  // Fill in modal data
   document.getElementById("summary-id").textContent = orderId;
   document.getElementById("summary-date").textContent =
     orderDate.toLocaleString();
@@ -97,13 +97,13 @@ function confirmPayment() {
     summaryItems.appendChild(li);
   });
 
-  // Show modal
+  // Show modal and lock background scroll
   const modal = document.getElementById("order-summary-modal");
   modal.classList.add("show");
   modal.style.display = "flex";
   document.body.classList.add("modal-open");
 
-  // Close modal button
+  // Close modal handler
   const closeButton = document.querySelector(".close-button");
   if (closeButton) {
     closeButton.onclick = () => {
@@ -113,7 +113,7 @@ function confirmPayment() {
     };
   }
 
-  // Final confirmation
+  // Final confirmation (Place Order button)
   const placeOrderBtn = document.getElementById("final-confirm-btn");
   if (placeOrderBtn) {
     placeOrderBtn.onclick = () => {
@@ -124,18 +124,20 @@ function confirmPayment() {
         total: total,
       };
 
-      // ✅ Send full receipt to Telegram
+      // 1. Send receipt to Telegram
       const message = formatTelegramMessage(newOrder);
       sendToTelegram(message);
 
-      // Save order and reset cart
+      // 2. Save order to history at the start of the array (newest first)
       orderHistory.unshift(newOrder);
       saveOrderHistory();
+
+      // 3. Clear cart
       cart = [];
       saveCart();
       updateCartCount();
 
-      // Close modal and redirect
+      // 4. Close modal and redirect
       modal.classList.remove("show");
       modal.style.display = "none";
       document.body.classList.remove("modal-open");
@@ -211,3 +213,24 @@ document.addEventListener("DOMContentLoaded", () => {
     orderHistoryContainer.appendChild(orderDiv);
   });
 });
+
+function sendToTelegram(message) {
+  fetch("/send-telegram", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ message }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.success) {
+        console.log("✅ Telegram message sent!");
+      } else {
+        console.error("❌ Telegram error:", data.error);
+      }
+    })
+    .catch((err) => {
+      console.error("❌ Telegram fetch failed:", err);
+    });
+}
