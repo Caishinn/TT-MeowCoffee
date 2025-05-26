@@ -167,6 +167,14 @@ window.addEventListener("DOMContentLoaded", () => {
   loadCartPage();
   updateCartCount();
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const cancelBtn = document.getElementById("close-summary-btn");
+  const modal = document.getElementById("order-summary-modal");
+
+  cancelBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+});
 
 function sendToTelegram(message) {
   fetch("/send-telegram", {
@@ -188,3 +196,14 @@ function sendToTelegram(message) {
       console.error("❌ Telegram fetch failed:", err);
     });
 }
+
+//header scroll //
+
+window.addEventListener("scroll", function () {
+  const header = document.querySelector("header");
+  if (window.scrollY > 10) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});

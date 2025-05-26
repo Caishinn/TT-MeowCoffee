@@ -68,3 +68,38 @@
     padding: 1rem;
   }
 }
+
+/* clear history */
+
+.history-controls {
+  text-align: center;
+  margin: 10px 0;
+}
+
+#clear-history-btn {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #6d4c41;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#clear-history-btn:hover {
+  background-color: #ffcccc;
+}
+#clear-history-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  #order-history-container {
+    padding: 0.5rem;
+  }
+
+  .order {
+    padding: 1rem;
+  }
+}

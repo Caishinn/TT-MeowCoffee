@@ -98,3 +98,37 @@ document.addEventListener("DOMContentLoaded", () => {
     orderHistoryContainer.appendChild(orderDiv);
   });
 });
+
+// Clear history btn //
+
+document
+  .getElementById("clear-history-btn")
+  .addEventListener("click", function () {
+    const confirmed = confirm(
+      "Are you sure you want to clear all order history?"
+    );
+    if (confirmed) {
+      localStorage.removeItem("orderHistory");
+      location.reload();
+    }
+  });
+
+const clearBtn = document.getElementById("clear-history-btn");
+const historyData = JSON.parse(localStorage.getItem("orderHistory") || "[]");
+
+if (historyData.length === 0) {
+  clearBtn.disabled = true;
+  clearBtn.classList.add("disabled");
+} else {
+  clearBtn.disabled = false;
+}
+
+clearBtn.addEventListener("click", function () {
+  const confirmed = confirm(
+    "Are you sure you want to clear all order history?"
+  );
+  if (confirmed) {
+    localStorage.removeItem("orderHistory");
+    location.reload();
+  }
+});

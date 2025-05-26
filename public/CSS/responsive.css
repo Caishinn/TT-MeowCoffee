@@ -4,3 +4,8 @@
     padding: 20px;
   }
 }
+@media (max-width: 600px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
