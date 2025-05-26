@@ -86,12 +86,14 @@
   cursor: pointer;
 }
 
-#clear-history-btn:hover {
+/*#clear-history-btn:hover {
   background-color: #ffcccc;
-}
+}*/
 #clear-history-btn.disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  background-color: #dcdcdc;
+  color: #979797;
 }
 
 @media (max-width: 600px) {

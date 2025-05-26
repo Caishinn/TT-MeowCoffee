@@ -25,8 +25,7 @@ header h1 {
 /* header button*/
 
 .header-buttons button {
-  margin: 0 0.5rem;
-  padding: 0.65rem 1rem;
+  padding: 0.7rem 1rem;
   background-color: #6d4c41;
   color: white;
   border: none;

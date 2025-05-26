@@ -1,11 +1,12 @@
 .toast {
   position: fixed;
   bottom: 40px;
+  right: 1px;
   background-color: #4caf50;
   color: white;
   padding: 0.8rem 0.8rem;
   margin: 1rem;
-  text-align: center;
+  text-align: left;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.082);
   font-weight: 500;
