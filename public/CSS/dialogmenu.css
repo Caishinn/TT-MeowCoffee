@@ -64,8 +64,9 @@
   width: 50px;
   text-align: center;
   font-size: 16px;
-  padding: 4px;
-  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 4px;
+  border: 1.2px solid #ccc;
   border-radius: 5px;
 }
 

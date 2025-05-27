@@ -40,12 +40,10 @@ function changeQty(id, delta) {
 }
 function changeItemQty(index, delta) {
   cart[index].quantity += delta;
+
   if (cart[index].quantity < 1) {
     cart.splice(index, 1);
   }
-  const qtySpan = itemDiv.querySelector(".qty");
-  qtySpan.classList.add("updated");
-  setTimeout(() => qtySpan.classList.remove("updated"), 300);
 
   saveCart();
   loadCartPage();

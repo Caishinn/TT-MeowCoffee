@@ -4,9 +4,7 @@ let selectedPrice = 0;
 function showDialog(itemName, price) {
   selectedItem = itemName;
   selectedPrice = price;
-  document.getElementById(
-    "dialog-title"
-  ).textContent = `Customize your ${itemName}`;
+  document.getElementById("dialog-title").textContent = `Order - ${itemName}`;
   document.getElementById("dialog-qty").value = 1;
   document.getElementById("customize-dialog").classList.remove("hidden");
 }
@@ -35,9 +33,7 @@ function confirmAdd() {
 function showDialog(itemName, price) {
   selectedItem = itemName;
   selectedPrice = price;
-  document.getElementById(
-    "dialog-title"
-  ).textContent = `Customize your ${itemName}`;
+  document.getElementById("dialog-title").textContent = `Order - ${itemName}`;
   document.getElementById("dialog-qty").value = 1;
 
   // Show dialog

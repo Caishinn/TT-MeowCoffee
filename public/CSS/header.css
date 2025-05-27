@@ -26,6 +26,8 @@ header h1 {
 
 .header-buttons button {
   padding: 0.7rem 1rem;
+  margin: 0 0.2rem;
+
   background-color: #6d4c41;
   color: white;
   border: none;

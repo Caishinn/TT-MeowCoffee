@@ -24,7 +24,7 @@
 .order h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  color: #ff7f07;
+  color: #bd8775;
   word-break: break-word;
 }
 
@@ -77,12 +77,12 @@
 }
 
 #clear-history-btn {
-  margin: 0 0.5rem;
   padding: 0.5rem 1rem;
-  background-color: #6d4c41;
-  color: white;
-  border: none;
+  background: none;
+  color: #9a6f60;
+  border: 1px solid #9a6f60;
   border-radius: 5px;
+  font-weight: 400;
   cursor: pointer;
 }
 
@@ -94,6 +94,7 @@
   cursor: not-allowed;
   background-color: #dcdcdc;
   color: #979797;
+  border: none;
 }
 
 @media (max-width: 600px) {
