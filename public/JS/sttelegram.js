@@ -1,5 +1,6 @@
 function formatTelegramMessage(order) {
   let message = `🧾 <b>New Order Received!</b>\n`;
+  message += `━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
   message += ` <b>Order ID:</b> ${order.id}\n`;
   message += ` <b>Date:</b> ${new Date(order.date).toLocaleString()}\n\n`;
   message += ` <b>Items:</b>\n`;
