@@ -1,8 +1,8 @@
 function formatTelegramMessage(order) {
   let message = `🧾 <b>New Order Received!</b>\n`;
-  message += `🆔 <b>Order ID:</b> ${order.id}\n`;
-  message += `📅 <b>Date:</b> ${new Date(order.date).toLocaleString()}\n\n`;
-  message += `📦 <b>Items:</b>\n`;
+  message += ` <b>Order ID:</b> ${order.id}\n`;
+  message += ` <b>Date:</b> ${new Date(order.date).toLocaleString()}\n\n`;
+  message += ` <b>Items:</b>\n`;
 
   order.items.forEach((item) => {
     message += `• ${item.name} x${item.quantity} — $${(
@@ -10,7 +10,7 @@ function formatTelegramMessage(order) {
     ).toFixed(2)}\n`;
   });
 
-  message += `\n💰 <b>Total:</b> $${order.total.toFixed(2)}`;
+  message += `\n <b>Total:</b> $${order.total.toFixed(2)}`;
   return message;
 }
 
