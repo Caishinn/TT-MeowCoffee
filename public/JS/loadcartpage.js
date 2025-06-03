@@ -6,7 +6,12 @@ function loadCartPage() {
   if (!cartItemsDiv || !cartSummaryDiv || !payBtn) return;
 
   if (cart.length === 0) {
-    cartItemsDiv.innerHTML = "<p>Your cart is empty.</p>";
+    cartItemsDiv.innerHTML = `
+      <div class="empty-cart-msg">
+        <img src="https://cdn-icons-png.flaticon.com/512/924/924514.png" alt="Empty Cart" class="empty-icon" />
+        <p>Your cart is empty</p>
+      </div>
+    `;
     cartSummaryDiv.textContent = "";
     payBtn.style.display = "none";
     return;
@@ -61,7 +66,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const orders = JSON.parse(localStorage.getItem("orderHistory")) || [];
 
   if (orders.length === 0) {
-    orderHistoryContainer.innerHTML = "<p>No past orders found.</p>";
+    orderHistoryContainer.innerHTML = `
+  <div class="empty-order-msg">
+    <img src="https://cdn-icons-png.flaticon.com/512/924/924514.png" alt="Empty Box" class="empty-icon" />
+    <p>No past orders found.</p>
+  </div>
+`;
+
     return;
   }
 

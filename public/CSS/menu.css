@@ -52,7 +52,7 @@
 .menu-item p {
   display: block;
   font-weight: bolder;
-  color: #8d6e63;
+  color: #8b5e3c;
   justify-content: flex-end;
   text-align: right;
 }
@@ -60,7 +60,7 @@
 /* Menu button add to cart*/
 
 .menu-item button:hover {
-  background-color: #8d6e63;
+  background-color: #8b5e3c;
 }
 
 /* button menu qty
@@ -155,7 +155,7 @@
 
 /* Add to Cart Button */
 .add-to-cart-btn {
-  background-color: #9a6f60;
+  background-color: #d9a05b;
   color: #fff;
   border: none;
   padding: 8px 18px;
@@ -167,7 +167,7 @@
 }
 
 .add-btn:hover {
-  background-color: #622a1d;
+  background-color: #8b5e3c;
 }
 
 .price {

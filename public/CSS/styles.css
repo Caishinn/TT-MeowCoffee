@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #f9f3ee;
+  background-color: #fdf6ee;
   color: #4e342e;
   line-height: 1.6;
 }
@@ -16,10 +16,10 @@ body {
 
 #back-btn {
   padding: 0.65rem 1rem;
-  background-color: #6d4c41;
-  color: white;
+  background-color: #fdf6ee;
+  color: #8b5e3c;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
 }
 /* Lock background when modal is open */

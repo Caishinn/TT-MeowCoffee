@@ -47,23 +47,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 1.5rem;
 }
 
 .qty-wrapper button {
-  padding: 6px 10px;
+  padding: 8px 12px;
   font-size: 18px;
+  font-weight: 500;
   border: none;
   background-color: #eee;
+  color: black;
   cursor: pointer;
-  border-radius: 5px;
-  margin: 0 5px;
+  border-radius: 8px;
+  margin: 0 8px;
 }
 
 .qty-wrapper input {
-  width: 50px;
+  width: 100px;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 500;
   padding: 5px;
   margin: 4px;
   border: 1.2px solid #ccc;
@@ -89,7 +92,7 @@
 }
 
 .dialog-actions button:last-child {
-  background-color: #5e412f;
+  background-color: #d9a05b;
   color: #fff;
 }
 
@@ -99,5 +102,5 @@
 }
 
 .dialog-actions button:last-child:hover {
-  background-color: #7a5c3d;
+  background-color: #8b5e3c;
 }

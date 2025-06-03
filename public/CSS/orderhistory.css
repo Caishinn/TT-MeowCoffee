@@ -51,6 +51,7 @@
   color: #000;
   font-weight: 600;
   margin-right: 0.5rem;
+  text-align: center;
 }
 
 .order hr {
@@ -79,8 +80,8 @@
 #clear-history-btn {
   padding: 0.5rem 1rem;
   background: none;
-  color: #9a6f60;
-  border: 1px solid #9a6f60;
+  color: #fdf6ee;
+  border: 1px solid #fdf6ee;
   border-radius: 5px;
   font-weight: 400;
   cursor: pointer;
@@ -92,9 +93,56 @@
 #clear-history-btn.disabled {
   opacity: 0.5;
   cursor: not-allowed;
-  background-color: #dcdcdc;
-  color: #979797;
+  background-color: #dcdcdc24;
+  color: #b9b9b9;
   border: none;
+}
+
+/*.empty-order-msg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px; /* Adjust as needed 
+  text-align: center;
+}
+
+.empty-order-msg p {
+  font-size: 1.1rem;
+  color: #555;
+}*/
+.empty-order-msg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+  text-align: center;
+  color: #666;
+  font-family: "Poppins", sans-serif;
+  gap: 10px;
+}
+
+.empty-order-msg .empty-icon {
+  width: 80px;
+  height: 80px;
+  opacity: 0.6;
+  animation: popIn 0.4s ease;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+.empty-order-msg p {
+  font-size: 1.2rem;
+  margin: 0;
 }
 
 @media (max-width: 600px) {

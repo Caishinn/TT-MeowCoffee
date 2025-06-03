@@ -22,10 +22,13 @@ function closeDialog() {
 function confirmAdd() {
   const qty = parseInt(document.getElementById("dialog-qty").value);
   const sugar = document.querySelector('input[name="sugar"]:checked').value;
+  const selectedIce = document.querySelector('input[name="ice"]:checked').value;
+
   //const size = document.querySelector('input[name="size"]:checked').value;
 
   //const fullItemName = `${selectedItem} (${size}, ${sugar} sugar)`;
-  const fullItemName = `${selectedItem} (${sugar} sugar)`;
+  //const fullItemName = `${selectedItem} (${sugar} sugar)`;
+  const fullItemName = `${selectedItem} (${sugar} , ${selectedIce})`;
 
   addToCart(fullItemName, selectedPrice, qty);
   closeDialog();

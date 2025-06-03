@@ -324,3 +324,46 @@
   text-align: right;
   padding-bottom: 8px;
 }
+
+#cart-items p {
+  font-size: 1.1rem;
+  color: #555;
+  text-align: center;
+}
+
+/* icon */
+
+.empty-cart-msg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+  text-align: center;
+  color: #555;
+  font-family: "Poppins", sans-serif;
+  gap: 10px;
+}
+
+.empty-cart-msg .empty-icon {
+  width: 80px;
+  height: 80px;
+  opacity: 0.6;
+  animation: floatUp 0.5s ease-in-out;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+}
+
+.empty-cart-msg p {
+  font-size: 1.2rem;
+  margin: 0;
+}
