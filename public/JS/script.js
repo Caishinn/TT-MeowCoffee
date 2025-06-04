@@ -13,9 +13,10 @@ function saveCart() {
 
 // Generate unique order ID
 function generateOrderId() {
-  const datePart = new Date().toISOString().slice(0, 10).replace(/-/g, "");
-  const randomPart = Math.random().toString(36).substring(2, 8).toUpperCase();
-  return `ORD-${datePart}-${randomPart}`;
+  const prefix = "TT-Meow"; // Your brand prefix
+  const randomPart = Math.random().toString(36).substring(2, 5).toUpperCase(); // e.g. "ABC"
+  const numberPart = Math.floor(100 + Math.random() * 900); // 3-digit number e.g. 123
+  return `${prefix}-${numberPart}`;
 }
 
 // Update cart item count in header
