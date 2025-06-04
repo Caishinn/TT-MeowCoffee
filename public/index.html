@@ -203,6 +203,7 @@
   <div id="toast" class="toast">✅ Added to cart!</div>
 
   <!-- Drink Customization Dialog -->
+
 <div id="customize-dialog" class="dialog hidden">
   <div class="dialog-content">
     <h3 id="dialog-title">Your Drink</h3>
@@ -210,24 +211,28 @@
     <label>Sugar Level:</label>
     <div>
       <label><input type="radio" name="sugar" value="No Sugar"> No Sugar</label>
-      <label><input type="radio" name="sugar" value="Less Sugar" checked> Less Sugar</label>
-      <label><input type="radio" name="sugar" value="Normal Sugar"> Normal Sugar</label>
+      <label><input type="radio" name="sugar" value="Less Sugar"> Less Sugar</label>
+      <label><input type="radio" name="sugar" value="Normal Sugar" checked> Normal Sugar</label>
     </div>
 
-    <!--label>Size:</label>
-    <div>
+<!-- Size >
+
+    <label>Size:</label>
+    <div id="size-section">
       <label><input type="radio" name="size" value="Small" checked> Small</label>
-      <label><input type="radio" name="size" value="Medium"> Medium</label>
-      <label><input type="radio" name="size" value="Large"> Large</label>
+      <label><input type="radio" name="size" value="Normal"> Normal</label>
     </div-->
     
-     <!-- Ice -->
-     <label>Ice Level:</label>
-     <div>
-      <label ><input  type="radio" name="ice" value="No Ice"> No Ice</label>
-       <label ><input  type="radio" name="ice" value="Less Ice"> Less Ice</label>
-       <label><input  type="radio" name="ice" value="Normal Ice" checked> Normal Ice</label>
-     </div>
+    <!-- Ice -->
+<div id="ice-section">
+  <label>Ice Level:</label>
+  <div>
+    <label><input type="radio" name="ice" value="No Ice"> No Ice</label>
+    <label><input type="radio" name="ice" value="Less Ice"> Less Ice</label>
+    <label><input type="radio" name="ice" value="Normal Ice" checked> Normal Ice</label>
+  </div>
+</div>
+
 
     <label>Quantity:</label>
     <div class="qty-wrapper">
@@ -242,6 +247,8 @@
     </div>
   </div>
 </div>
+
+
 
 </body>
 </html>
