@@ -22,6 +22,11 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
     />
+
+    <!--Link Web icon-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
    
 
 </head>
@@ -48,6 +53,22 @@
         <!--Menu -->
     <section class="menu">
       <h2>Our Menu</h2>
+
+      <!--Menu item Search-->
+
+      <div class="menu-search">
+        <div class="search-box">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            type="text"
+            id="menuSearchInput"
+            placeholder="Search drinks..."
+            onkeyup="filterMenuItems()"
+          />
+        </div>
+      </div>
+      
+      
 
       <!--Menu item-->
 
