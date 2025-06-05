@@ -60,13 +60,17 @@
         <div class="search-box">
           <i class="fas fa-search search-icon"></i>
           <input
-            type="text"
-            id="menuSearchInput"
-            placeholder="Search drinks..."
-            onkeyup="filterMenuItems()"
-          />
+  type="text"
+  id="menuSearchInput"
+  placeholder="Search drinks..."
+  onkeyup="filterMenuItems(event)"
+/>
         </div>
       </div>
+      <p id="no-results-message" style="display: none; text-align: center; margin-top: 1rem; color: #999;">
+        No drinks match your search.
+      </p>
+      
       
       
 
@@ -177,6 +181,7 @@
   <script src="./JS/loadcartpage.js"></script>
   <script src="./JS/sttelegram.js"></script>
   <script src="./JS/dialogcart.js"></script>
+  <script src="./JS/menusearch.js"></script>
   
 
   <div id="toast" class="toast">✅ Added to cart!</div>

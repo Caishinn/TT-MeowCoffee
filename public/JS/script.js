@@ -210,19 +210,3 @@ window.addEventListener("scroll", function () {
     header.classList.remove("scrolled");
   }
 });
-
-// menu search
-function filterMenuItems() {
-  const input = document.getElementById("menuSearchInput");
-  const filter = input.value.toLowerCase();
-  const items = document.querySelectorAll(".menu-item");
-
-  items.forEach((item) => {
-    const name = item.querySelector("h3").textContent.toLowerCase();
-    if (name.includes(filter)) {
-      item.style.display = "";
-    } else {
-      item.style.display = "none";
-    }
-  });
-}
