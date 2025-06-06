@@ -4,17 +4,12 @@ function filterMenuItems(event) {
   const filter = input.value.trim().toLowerCase();
   const items = document.querySelectorAll(".menu-item");
 
-  let firstMatch = null;
   let matchCount = 0;
 
   items.forEach((item) => {
     const name = item.querySelector("h3").textContent.toLowerCase();
     const match = name.includes(filter);
     item.style.display = match ? "" : "none";
-
-    if (match && !firstMatch) {
-      firstMatch = item;
-    }
 
     if (match) matchCount++;
   });
@@ -24,9 +19,35 @@ function filterMenuItems(event) {
     noResults.style.display = matchCount === 0 ? "block" : "none";
   }
 
-  // If user pressed Enter and there's a match, focus the first one
-  if (event && event.key === "Enter" && firstMatch) {
-    firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
-    firstMatch.querySelector("button")?.focus(); // optional: focus Add button
+  // Handle Enter key
+  if (event && event.key === "Enter") {
+    event.preventDefault(); // Prevent default scroll behavior
+
+    if (filter.length > 0) {
+      input.blur(); // Close mobile keyboard if something is typed
+    } else {
+      input.blur(); // Also blur when no text (reset focus)
+    }
+
+    return false;
   }
+
+  // Additionally, blur input if cleared manually
+  if (filter.length === 0) {
+    input.blur(); // Reset focus when empty
+  }
+}
+
+function toggleClearButton() {
+  const input = document.getElementById("menuSearchInput");
+  const clearBtn = document.getElementById("clearSearchBtn");
+  clearBtn.style.display = input.value ? "block" : "none";
+}
+
+function clearSearch() {
+  const input = document.getElementById("menuSearchInput");
+  input.value = "";
+  input.focus();
+  document.getElementById("clearSearchBtn").style.display = "none";
+  filterMenuItems(); // Re-run search to reset view
 }

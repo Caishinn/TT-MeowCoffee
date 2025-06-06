@@ -36,7 +36,7 @@
 
     <header>
   <h1>TT-MeowCoffée</h1>
-  <p class="tagline">Brewed with love ☕</p>
+  <p class="tagline">Purrfect brews, crafted with love</p>
 
   <!--Header buttons Cart with order history-->
 
@@ -57,16 +57,26 @@
       <!--Menu item Search-->
 
       <div class="menu-search">
-        <div class="search-box">
+        <div class="search-box" style="position: relative;">
           <i class="fas fa-search search-icon"></i>
           <input
-  type="text"
-  id="menuSearchInput"
-  placeholder="Search drinks..."
-  onkeyup="filterMenuItems(event)"
-/>
+            type="text"
+            id="menuSearchInput"
+            placeholder="Search drinks..."
+            onkeyup="filterMenuItems(event)"
+            oninput="toggleClearButton()"
+          />
+          <button
+            id="clearSearchBtn"
+            onclick="clearSearch()"
+            style="display: none; position: absolute; right: 10px; background: none; border: none; font-size: 16px; color: #888; cursor: pointer;"
+            aria-label="Clear search"
+          >
+            ✖
+          </button>
         </div>
       </div>
+      
       <p id="no-results-message" style="display: none; text-align: center; margin-top: 1rem; color: #999;">
         No drinks match your search.
       </p>
